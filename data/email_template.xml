@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="email_template_attendance" model="mail.template">
+        <field name="name">Attendance Report</field>
+        <field name="model_id"
+               ref="attendance_report.model_attendance_report_wizard"/>
+<!--        <field name="email_from">{{object.res_user_id.email}}</field>-->
+<!--        <field name="email_to">{{object.manager.users.login.email}}</field>-->
+<!--        <field name="report_template" ref="action_attendance_report"/>-->
+        <field name="subject">Attendance Report</field>
+        <field name="body_html" type="html">
+            <div style="margin:0px; padding:0px">
+                <p>
+                    Dear,
+                    <br/>
+                    <br/>
+                    Attendance Report is attached below
+                    <br/>
+                </p>
+                Regards,
+                <br/>
+                <t t-out="user.name"/>
+            </div>
+        </field>
+    </record>
+</odoo>
